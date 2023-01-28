@@ -1,0 +1,117 @@
+#wrapper.wrapper
+  #markdown(contenteditable="true" keydown.delegate="handleKeydown()")
+    | Heading
+    br
+    | =======
+    br
+    br
+    | Sub-heading
+    br
+    | -----------
+    br
+    br
+    | ### Another deeper heading
+    br
+    br
+    | Paragraphs are separated
+    br
+    | by a blank line.
+    br
+    br
+    | Leave 2 spaces at the end of a line to do a&nbsp;&nbsp;
+    br
+    | line break
+    br
+    br
+    | Text attributes *italic*, **bold**,&nbsp;
+    br
+    | `monospace`, ~~strikethrough~~&nbsp;.
+    br
+    br
+    | Shopping list:
+    br
+    br
+    | &nbsp;&nbsp;* apples
+    br
+    | &nbsp;&nbsp;* oranges
+    br
+    | &nbsp;&nbsp;* pears
+    br
+    br
+    | Numbered list:
+    br
+    br
+    | &nbsp;&nbsp;1. apples
+    br
+    | &nbsp;&nbsp;2. oranges
+    br
+    | &nbsp;&nbsp;3. pears
+    br
+    br
+    | The rain---not the reign---in
+    br
+    | Spain.
+    br
+    br
+    | *[Link](http://www.example.com)*
+
+  #result
+    h1#heading Heading
+    h2#sub-heading Sub-heading
+    h3#another-deeper-heading Another deeper heading
+    p Paragraphs are separated
+      | by a blank line.
+    p Leave 2 spaces at the end of a line to do a
+      br
+      | line break
+    p Text attributes&nbsp;
+      em italic
+      | ,&nbsp;
+      strong bold
+      | ,&nbsp;
+      code monospace
+      | ,&nbsp;
+      del strikethrough
+      | &nbsp;.
+    p Shopping list:
+    ul
+      li apples
+      li oranges
+      li pears
+    p Numbered list:
+    ol
+      li apples
+      li oranges
+      li pears
+    p The rain---not the reign---in&nbsp;
+      | Spain.
+    p
+      em
+        a(href="http://www.example.com") Link
+
+footer.mdl-mini-footer
+  .mdl-logo
+    | Written by&nbsp;
+    a.footer-link(href="https://www.freecodecamp.org/letsziggy" target="_blank") LetsZiggy
+    | &nbsp;for&nbsp;
+    a.footer-link(href='https://www.freecodecamp.org/challenges/build-a-markdown-previewer', target='_blank') FreeCodeCamp Challenge
+    | .
+    span Using Aurelia.js instead of React.js
+
+  .resources-container
+    input#resources-toggle(type="checkbox")
+    label.resources-btn(for="resources-toggle") Resources
+    label.resources-backdrop(for="resources-toggle")
+    .resources-content
+      label.resources-close(for="resources-toggle") &#x2715;
+      h5 Resources
+      hr
+      ul
+        li
+          a(href="https://codemyui.com/pure-css-modal-box-on-button-click/" target="_blank") Pure CSS Modal Box On Button Click
+        li
+          a(href="http://aurelia.io/" target="_blank") Aurelia.js
+        li
+          a(href="https://codepen.io/kwatanabe/pen/OxaBoZ/" target="_blank") Guide for using Aurelia.js on CodePen with basicConfiguration
+        li
+          a(href="https://codepen.io/mikkokam/pen/aOmRej/" target="_blank") Guide for using Aurelia.js on CodePen with iframe

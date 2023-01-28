@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700')
+
+body
+  position         : relative
+  display          : flex
+  flex-direction   : row
+  flex-wrap        : wrap
+  align-items      : stretch
+  background-color : #FAFAFA
+  color            : #333
+
+.wrapper
+  display         : flex
+  flex-direction  : row
+  justify-content : center
+  align-items     : flex-start
+  align-content   : center
+  width           : 100%
+  min-height      : 80vh
+  box-sizing      : border-box
+  font-family     : 'PT Sans Narrow', sans-serif
+  
+  table
+    margin          : 2.5rem 0rem
+    border-collapse : collapse
+    border-spacing  : 0px
+    width           : 75vw
+
+    caption
+      font-size   : 1.75rem
+      font-weight : bold
+      color       : whitesmoke
+      padding     : 0.5rem
+      margin      : 0rem 0rem 0.5rem 0rem
+      text-align  : left
+      user-select : none
+      text-shadow : 1px 1px 0px purple
+
+    thead
+      tr
+        th
+          padding          : 0.75rem 0.5rem
+          background-color : indigo
+          color            : gainsboro
+          font-weight      : bolder
+          cursor           : default
+          user-select      : none
+          border           : 2px solid #fafafa
+          border-top       : none
+          border-bottom    : 3px solid #fafafa
+
+        th:nth-child(2)
+          text-align : left
+
+        th:nth-child(3), th:nth-child(4)
+          cursor : pointer
+
+        th:nth-child(3):hover, th:nth-child(4):hover
+          background-color : darkslateblue
+
+        th:first-child
+          border-left : none
+
+        th:last-child
+          border-right : none
+
+    tbody
+      display : none
+
+      tr
+        td
+          padding     : 0.5rem
+          cursor      : default
+          user-select : none
+          border      : 2px solid #fafafa
+
+          a
+            color : lightslategrey
+          
+            img
+              width         : 1.75rem
+              height        : 1.75rem
+              margin-right  : 0.5rem
+              border-radius : 5px
+              border        : 2px solid #fafafa
+
+          a:hover
+            color : rgb(255, 82, 82)
+
+            img
+              border-color : darkslategrey // rgb(255, 82, 82)
+
+        td:nth-child(3), td:nth-child(4)
+          text-align : center
+
+        td:first-child
+          text-align  : center
+          border-left : none
+
+        td:lash-child
+          border-right : none
+
+      tr:first-child
+        td
+          border-top : none
+
+      tr:last-child
+        td
+          border-bottom : none
+
+      tr:nth-child(odd)
+        td
+          background-color : rgba(238, 130, 238, 0.35)
+
+      tr:nth-child(even)
+        td
+          background-color : rgba(218, 112, 214, 0.35)
+
+.mdl-mini-footer
+  position  : relative
+  flex-grow : 1
+
+  .mdl-logo
+    background-color : #424242
+    color            : #CCC
+    font-size        : 0.8em
+    margin-left      : auto
+    margin-right     : auto
+    text-align       : center
+  
+    .footer-link
+      color : #CCC
+
+    span
+      display    : block
+      color      : grey
+      margin-top : -1rem
+
+  .resources-container
+    position : absolute
+    right    : 5px
+    top      : 5px
+
+    #resources-toggle
+      display : none
+
+      &:checked ~ .resources-backdrop
+        position         : fixed
+        visibility       : visible
+        width            : 100vw
+        height           : 100vh
+        left             : 0
+        top              : 0
+        z-index          : 9
+        opacity          : 1
+        background-color : rgba(0, 0, 0, 0.6)
+        transition       : opacity 0.2 ease-in
+
+      &:checked ~ .resources-content
+        position         : fixed
+        visibility       : visible
+        width            : 75vw
+        height           : 50vh
+        left             : 50%
+        top              : 10vh
+        transform        : translateX(-50%)
+        background-color : #FFF
+        opacity          : 1
+        padding          : 10px 30px
+        z-index          : 999
+        pointer-events   : auto
+        cursor           : auto
+        box-shadow       : 0 0px 0px 6px rgba(0, 0, 0, 0.6)
+
+    .resources-btn
+      display         : block
+      margin          : 0
+      color           : #CCC
+      font-size       : 0.8em
+      font-weight     : bold
+      text-decoration : underline
+      cursor          : pointer
+
+    .resources-content,
+    .resources-backdrop
+      width      : 0
+      height     : 0
+      opacity    : 0
+      visibility : hidden
+      overflow   : hidden
+      cursor     : pointer
+      transition : opacity 0.2s ease-in
+
+    .resources-content
+      position : relative
+      color    : black
+
+      .resources-close
+        position    : absolute
+        right       : 5px
+        top         : 5px
+        padding     : 5px
+        color       : #333
+        font-weight : bold
+        text-align  : center
+        cursor      : pointer
+
+        &:hover
+          color : #C33
+
+@media (max-width: 760px)
+  .wrapper
+    table
+      width : calc(100vw - 30px)
+
+@media (max-width: 480px)
+  .mdl-mini-footer
+    .resources-container
+      #resources-toggle
+        &:checked ~ .resources-content
+          width : calc(80vw - 20px)

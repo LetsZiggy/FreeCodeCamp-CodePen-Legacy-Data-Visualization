@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons')
+
+body
+  position         : relative
+  display          : flex
+  flex-direction   : row
+  flex-wrap        : wrap
+  align-items      : stretch
+  background-color : #FAFAFA
+  color            : #333
+
+.wrapper
+  position        : relative
+  display         : flex
+  flex-direction  : column
+  justify-content : center
+  align-items     : center
+  align-content   : center
+  width           : 100%
+  min-height      : calc(80vh - 25px)
+  box-sizing      : border-box
+
+  .controllers
+    display         : flex
+    flex-direction  : row
+    justify-content : center
+    align-items     : center
+    align-content   : center
+    margin-top      : 1rem
+    margin-bottom   : 0.5rem
+    user-select     : none
+
+    span
+      font-size   : 1.75rem
+      font-weight : bolder
+      margin-top  : -0.65rem
+
+    .controls
+      display : inline-block
+
+      .play, .pause, .clear, .random
+        display     : inline-block
+        cursor      : pointer
+        user-select : none
+
+        .material-icons:first-child
+          display : inline-block
+
+        .material-icons:last-child
+          display : none
+
+      .play:hover, .pause:hover, .clear:hover, .random:hover
+        .material-icons:first-child
+          display : none
+
+        .material-icons:last-child
+          display : inline-block
+
+      .play:active, .pause:active, .clear:active, .random:active
+        .material-icons:last-child
+          color : grey
+
+      .play.selected, .pause.selected, .clear.selected, .random.selected
+        cursor : default
+
+        .material-icons:first-child
+          display : none
+
+        .material-icons:last-child
+          display : inline-block
+
+      // .play.selected:hover, .pause.selected:hover, .clear.selected:hover, .random.selected:hover
+        .material-icons:last-child
+          color : dimgrey
+
+      .play.selected:active, .pause.selected:active, .clear.selected:active, .random.selected:active
+        .material-icons:last-child
+          color : rgba(0, 0, 0, 0.8)
+
+    .speed, .size
+      display : inline-block
+
+      .slow, .medium, .fast, .small, .medium, .large
+        display       : inline-block
+        cursor        : pointer
+        user-select   : none
+
+        .material-icons
+          border-radius : 25px
+
+      .slow:hover, .medium:hover, .fast:hover, .small:hover, .medium:hover, .large:hover
+        .material-icons
+          background-color : rgba(0, 0, 0, 0.8)
+          color            : #fafafa
+
+      .slow:active, .medium:active, .fast:active, .small:active, .medium:active, .large:active
+        .material-icons
+          background-color : grey
+          color            : #fafafa
+
+      .slow.selected, .medium.selected, .fast.selected, .small.selected, .medium.selected, .large.selected
+        cursor : default
+
+        .material-icons
+          background-color : rgba(0, 0, 0, 0.8)
+          color            : #fafafa
+
+      // .slow.selected:hover, .medium.selected:hover, .fast.selected:hover, .small.selected:hover, .medium.selected:hover, .large.selected:hover
+        .material-icons
+          background-color : dimgrey
+          color            : #fafafa
+
+      // .slow.selected:active, .medium.selected:active, .fast.selected:active, .small.selected:active, .medium.selected:active, .large.selected:active
+        .material-icons
+          background-color : grey
+          color            : #fafafa
+
+    .generation
+      display     : none
+      font-size   : 1.5rem
+      font-weight : bolder
+      margin-top  : -0.45rem
+
+  table
+    display          : none
+    border-spacing   : 1px
+    background-color : #eaeaea
+    margin-bottom    : 1rem
+
+    tbody
+      tr
+        td
+          min-width        : 5px
+          min-height       : 5px
+          width            : 5px
+          height           : 5px
+          background-color : whitesmoke
+
+        td:hover
+          background-color : gainsboro
+
+        td[data-alive="1"]
+          background-color : lightcoral
+
+        td[data-alive="1"]:hover
+          background-color : indianred
+
+        td[data-alive="2"]
+          background-color : crimson
+
+        td[data-alive="2"]:hover
+          background-color : darkred
+
+.mdl-mini-footer
+  position  : relative
+  flex-grow : 1
+
+  .mdl-logo
+    background-color : #424242
+    color            : #CCC
+    font-size        : 0.8em
+    margin-left      : auto
+    margin-right     : auto
+    text-align       : center
+  
+    .footer-link
+      color : #CCC
+
+    span
+      display    : block
+      color      : grey
+      margin-top : -1rem
+
+  .resources-container
+    position : absolute
+    right    : 5px
+    top      : 5px
+
+    #resources-toggle
+      display : none
+
+      &:checked ~ .resources-backdrop
+        position         : fixed
+        visibility       : visible
+        width            : 100vw
+        height           : 100vh
+        left             : 0
+        top              : 0
+        z-index          : 9
+        opacity          : 1
+        background-color : rgba(0, 0, 0, 0.6)
+        transition       : opacity 0.2 ease-in
+
+      &:checked ~ .resources-content
+        position         : fixed
+        visibility       : visible
+        width            : 75vw
+        height           : 50vh
+        left             : 50%
+        top              : 10vh
+        transform        : translateX(-50%)
+        background-color : #FFF
+        opacity          : 1
+        padding          : 10px 30px
+        z-index          : 999
+        pointer-events   : auto
+        cursor           : auto
+        box-shadow       : 0 0px 0px 6px rgba(0, 0, 0, 0.6)
+
+    .resources-btn
+      display         : block
+      margin          : 0
+      color           : #CCC
+      font-size       : 0.8em
+      font-weight     : bold
+      text-decoration : underline
+      cursor          : pointer
+
+    .resources-content,
+    .resources-backdrop
+      width      : 0
+      height     : 0
+      opacity    : 0
+      visibility : hidden
+      overflow   : hidden
+      cursor     : pointer
+      transition : opacity 0.2s ease-in
+
+    .resources-content
+      position : relative
+      color    : black
+
+      .resources-close
+        position    : absolute
+        right       : 5px
+        top         : 5px
+        padding     : 5px
+        color       : #333
+        font-weight : bold
+        text-align  : center
+        cursor      : pointer
+
+        &:hover
+          color : #C33
+
+@media (max-width: 760px)
+  .wrapper
+    .controllers
+      span
+        font-size : 1.25rem
+
+      .play, .pause, .clear, .random, .speed, .size
+        .material-icons
+          font-size : 1.5rem
+
+      .generation
+        font-size  : 1rem
+        margin-top : -0.4rem
+
+@media (max-width: 480px)
+  .wrapper
+    .controllers
+      span
+        font-size  : 0.9rem
+        margin-top : -0.3rem
+
+      .play, .pause, .clear, .random, .speed, .size
+        .material-icons
+          font-size : 1rem
+
+      .generation
+        font-size  : 0.85rem
+        margin-top : -0.3rem
+
+  .mdl-mini-footer
+    .resources-container
+      #resources-toggle
+        &:checked ~ .resources-content
+          width : calc(80vw - 20px)

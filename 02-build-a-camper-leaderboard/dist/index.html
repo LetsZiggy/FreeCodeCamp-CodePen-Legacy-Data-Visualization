@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - FreeCodeCamp - Build a Camper Leaderboard</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FreeCodeCamp - Build a Camper Leaderboard</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://code.getmdl.io/1.2.1/material.indigo-red.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper" id="wrapper">
+  <table>
+    <caption>FreeCodeCamp Leaderboard</caption>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Camper Name</th>
+        <th css="background-color: ${sort === 'recent' ? 'purple' : ''};" click.delegate="changeData('recent')">Points in past 30 days</th>
+        <th css="background-color: ${sort === 'alltime' ? 'purple' : ''};" click.delegate="changeData('alltime')">All time points</th>
+      </tr>
+    </thead>
+    <tbody css="display: ${datas === null ? '' : 'table-row-group'};">
+      <tr repeat.for="data of datas">
+        <td>${$index + 1}</td>
+        <td><a href="https://www.freecodecamp.org/${data.username}" target="_blank"><img src="${data.img}"/>${data.username}</a></td>
+        <td>${data.recent}</td>
+        <td>${data.alltime}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<footer class="mdl-mini-footer">
+  <div class="mdl-logo">Written by&nbsp;<a class="footer-link" href="https://www.freecodecamp.org/letsziggy" target="_blank">LetsZiggy</a>&nbsp;for&nbsp;<a class="footer-link" href="https://www.freecodecamp.org/challenges/build-a-camper-leaderboard" target="_blank">FreeCodeCamp Challenge</a>.<span>Using Aurelia.js instead of React.js</span></div>
+  <div class="resources-container">
+    <input id="resources-toggle" type="checkbox"/>
+    <label class="resources-btn" for="resources-toggle">Resources</label>
+    <label class="resources-backdrop" for="resources-toggle"></label>
+    <div class="resources-content">
+      <label class="resources-close" for="resources-toggle">&#x2715;</label>
+      <h5>Resources</h5>
+      <hr/>
+      <ul>
+        <li><a href="https://codemyui.com/pure-css-modal-box-on-button-click/" target="_blank">Pure CSS Modal Box On Button Click</a></li>
+        <li><a href="http://aurelia.io/" target="_blank">Aurelia.js</a></li>
+        <li><a href="https://codepen.io/kwatanabe/pen/OxaBoZ/" target="_blank">Guide for using Aurelia.js on CodePen with basicConfiguration</a></li>
+        <li><a href="https://codepen.io/mikkokam/pen/aOmRej/" target="_blank">Guide for using Aurelia.js on CodePen with iframe</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- partial -->
+  <script src='https://code.getmdl.io/1.1.3/material.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/aurelia/1.0.2/aurelia-core.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

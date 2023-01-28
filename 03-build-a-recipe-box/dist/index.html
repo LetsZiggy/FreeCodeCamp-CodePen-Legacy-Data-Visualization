@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - FreeCodeCamp - Build a Recipe Box</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FreeCodeCamp - Build a Recipe Box</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://code.getmdl.io/1.2.1/material.indigo-red.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper" id="wrapper">
+  <div class="add-new center" id="add-new" click.delegate="modal($event, 'new')"><i class="material-icons">restaurant_menu</i></div>
+  <div class="recipe-modal hidden" id="recipe-modal">
+    <div class="cover" click.delegate="modal($event, 'cancel')"></div>
+    <div class="form">
+      <input id="name-input" type="text" value="" placeholder="RECIPE NAME"/>
+      <textarea id="ingredients-input" value="" placeholder="RECIPE INGREDIENTS (line separated)"></textarea>
+      <textarea id="directions-input" value="" placeholder="RECIPE DIRECTIONS (line separated)"></textarea>
+      <div class="buttons">
+        <button click.delegate="modal($event, 'ok')">OK</button>
+        <button click.delegate="modal($event, 'cancel')">CANCEL</button>
+      </div>
+    </div>
+  </div>
+  <div class="recipe-list" id="recipe-list" css="display: ${recipes === null ? '' : 'block'};">
+    <div class="recipe" repeat.for="recipe of recipes" click.delegate="show($event, $index)">
+      <div class="recipe-name">
+        <div class="name">${recipe.name}</div>
+        <div class="icons"><i class="material-icons" click.trigger="modal($event, $index)">mode_edit</i><i class="material-icons" click.trigger="delete($event, $index)">delete</i></div>
+      </div>
+      <div class="recipe-description" id="${$index}">
+        <div class="ingredients">
+          <div class="title">Ingredients:</div>
+          <ul class="list">
+            <li repeat.for="ingredient of recipe.ingredients">${ingredient}</li>
+          </ul>
+        </div>
+        <div class="directions">
+          <div class="title">Directions:</div>
+          <ol class="list">
+            <li repeat.for="direction of recipe.directions">${direction}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="mdl-mini-footer">
+  <div class="mdl-logo">Written by&nbsp;<a class="footer-link" href="https://www.freecodecamp.org/letsziggy" target="_blank">LetsZiggy</a>&nbsp;for&nbsp;<a class="footer-link" href="https://www.freecodecamp.org/challenges/build-a-recipe-box" target="_blank">FreeCodeCamp Challenge</a>.<span>Using Aurelia.js instead of React.js</span></div>
+  <div class="resources-container">
+    <input id="resources-toggle" type="checkbox"/>
+    <label class="resources-btn" for="resources-toggle">Resources</label>
+    <label class="resources-backdrop" for="resources-toggle"></label>
+    <div class="resources-content">
+      <label class="resources-close" for="resources-toggle">&#x2715;</label>
+      <h5>Resources</h5>
+      <hr/>
+      <ul>
+        <li><a href="https://codemyui.com/pure-css-modal-box-on-button-click/" target="_blank">Pure CSS Modal Box On Button Click</a></li>
+        <li><a href="http://aurelia.io/" target="_blank">Aurelia.js</a></li>
+        <li><a href="https://codepen.io/kwatanabe/pen/OxaBoZ/" target="_blank">Guide for using Aurelia.js on CodePen with basicConfiguration</a></li>
+        <li><a href="https://codepen.io/mikkokam/pen/aOmRej/" target="_blank">Guide for using Aurelia.js on CodePen with iframe</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- partial -->
+  <script src='https://code.getmdl.io/1.1.3/material.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/aurelia/1.0.2/aurelia-core.min.js'></script><script type="module" src="./script.js"></script>
+
+</body>
+</html>

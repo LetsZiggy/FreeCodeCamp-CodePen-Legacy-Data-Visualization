@@ -1,0 +1,57 @@
+#wrapper.wrapper
+  #add-new.add-new.center(click.delegate="modal($event, 'new')")
+    i.material-icons restaurant_menu
+
+  #recipe-modal.recipe-modal.hidden
+    .cover(click.delegate="modal($event, 'cancel')")
+    .form
+      input#name-input(type="text" value="" placeholder="RECIPE NAME")
+      textarea#ingredients-input(value="" placeholder="RECIPE INGREDIENTS (line separated)")
+      textarea#directions-input(value="" placeholder="RECIPE DIRECTIONS (line separated)")
+      .buttons
+        button(click.delegate="modal($event, 'ok')") OK
+        button(click.delegate="modal($event, 'cancel')") CANCEL
+
+  #recipe-list.recipe-list(css="display: ${recipes === null ? '' : 'block'};")
+    .recipe(repeat.for="recipe of recipes" click.delegate="show($event, $index)")
+      .recipe-name
+        .name ${recipe.name}
+        .icons
+          i.material-icons(click.trigger="modal($event, $index)") mode_edit
+          i.material-icons(click.trigger="delete($event, $index)") delete
+      .recipe-description(id="${$index}")
+        .ingredients
+          .title Ingredients:
+          ul.list
+            li(repeat.for="ingredient of recipe.ingredients") ${ingredient}
+        .directions
+          .title Directions:
+          ol.list
+            li(repeat.for="direction of recipe.directions") ${direction}
+
+footer.mdl-mini-footer
+  .mdl-logo
+    | Written by&nbsp;
+    a.footer-link(href="https://www.freecodecamp.org/letsziggy" target="_blank") LetsZiggy
+    | &nbsp;for&nbsp;
+    a.footer-link(href='https://www.freecodecamp.org/challenges/build-a-recipe-box', target='_blank') FreeCodeCamp Challenge
+    | .
+    span Using Aurelia.js instead of React.js
+
+  .resources-container
+    input#resources-toggle(type="checkbox")
+    label.resources-btn(for="resources-toggle") Resources
+    label.resources-backdrop(for="resources-toggle")
+    .resources-content
+      label.resources-close(for="resources-toggle") &#x2715;
+      h5 Resources
+      hr
+      ul
+        li
+          a(href="https://codemyui.com/pure-css-modal-box-on-button-click/" target="_blank") Pure CSS Modal Box On Button Click
+        li
+          a(href="http://aurelia.io/" target="_blank") Aurelia.js
+        li
+          a(href="https://codepen.io/kwatanabe/pen/OxaBoZ/" target="_blank") Guide for using Aurelia.js on CodePen with basicConfiguration
+        li
+          a(href="https://codepen.io/mikkokam/pen/aOmRej/" target="_blank") Guide for using Aurelia.js on CodePen with iframe

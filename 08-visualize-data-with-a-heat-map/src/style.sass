@@ -1,0 +1,234 @@
+body
+  position         : relative
+  display          : flex
+  flex-direction   : row
+  flex-wrap        : wrap
+  align-items      : stretch
+  background-color : #FAFAFA
+  color            : #333
+
+.wrapper
+  display         : flex
+  flex-direction  : column
+  justify-content : center
+  align-items     : center
+  align-content   : center
+  width           : 100%
+  height          : 90vh
+
+  #title
+    width      : 100%
+    height     : 25%
+    box-sizing : border-box
+    text-align : center
+    overflow   : hidden
+
+    h3
+      font-weight : bolder
+      font-size   : 2rem
+      line-height : 2rem
+      transform   : translateY(-1rem)
+
+    h4
+      font-size   : 1.25rem
+      line-height : 1.25rem
+      transform   : translateY(-2.5rem)
+
+    h6
+      font-size   : 0.75rem
+      line-height : 0.75rem
+      transform   : translateY(-4rem)
+
+    .colours
+      width        : 300px
+      height       : 25px
+      transform    : translateY(-4.5rem)
+      margin-left  : auto
+      margin-right : auto
+
+      .boxes
+        span
+          display : inline-block
+          width   : 25px
+          height  : 25px
+
+      .min, .middle, .max
+        font-size   : 0.75rem
+        font-weight : bolder
+        transform   : translateY(-0.5rem)
+
+      .min
+        display : inline-block
+        float   : left
+
+      .middle
+        display : inline-block
+        margin-left : auto
+        margin-right : auto
+
+      .max
+        display : inline-block
+        float   : right
+
+  #table
+    width      : 100%
+    height     : 75%
+    box-sizing : border-box
+
+  #info
+    pointer-events : none
+    user-select : none    
+
+.mdl-mini-footer
+  position  : relative
+  flex-grow : 1
+
+  .mdl-logo
+    background-color : #424242
+    color            : #CCC
+    font-size        : 0.8em
+    margin-left      : auto
+    margin-right     : auto
+  
+    .footer-link
+      color : #CCC
+
+  .resources-container
+    position : absolute
+    right    : 5px
+    top      : 5px
+
+    #resources-toggle
+      display : none
+
+      &:checked ~ .resources-backdrop
+        position         : fixed
+        visibility       : visible
+        width            : 100vw
+        height           : 100vh
+        left             : 0
+        top              : 0
+        z-index          : 9
+        opacity          : 1
+        background-color : rgba(0, 0, 0, 0.6)
+        transition       : opacity 0.2 ease-in
+
+      &:checked ~ .resources-content
+        position         : fixed
+        visibility       : visible
+        width            : 50vw
+        height           : 70vh
+        left             : 50%
+        top              : 10vh
+        transform        : translateX(-50%)
+        background-color : #FFF
+        opacity          : 1
+        padding          : 10px 30px
+        z-index          : 999
+        pointer-events   : auto
+        cursor           : auto
+        box-shadow       : 0 0px 0px 6px rgba(0, 0, 0, 0.6)
+
+    .resources-btn
+      display         : block
+      margin          : 0
+      color           : #CCC
+      font-size       : 0.8em
+      font-weight     : bold
+      text-decoration : underline
+      cursor          : pointer
+
+    .resources-content,
+    .resources-backdrop
+      width      : 0
+      height     : 0
+      opacity    : 0
+      visibility : hidden
+      overflow   : hidden
+      cursor     : pointer
+      transition : opacity 0.2s ease-in
+
+    .resources-content
+      position : relative
+      color    : black
+
+      .resources-close
+        position    : absolute
+        right       : 5px
+        top         : 5px
+        padding     : 5px
+        color       : #333
+        font-weight : bold
+        text-align  : center
+        cursor      : pointer
+
+        &:hover
+          color : #C33
+
+@media (max-width: 760px)
+  .wrapper
+    #title
+      h3
+        font-size   : 1.5rem
+        line-height : 1.5rem
+        transform   : translateY(-1rem)
+
+      h4
+        font-size   : 1rem
+        line-height : 1rem
+        transform   : translateY(-2.5rem)
+
+      h6
+        transform : translateY(-3.5rem)
+
+      .colours
+        transform : translateY(-4rem)
+
+@media (max-width: 480px)
+  .wrapper
+    #title
+      h3
+        font-size   : 1rem
+        line-height : 1rem
+        transform   : translateY(-1rem)
+
+      h4
+        font-size   : 0.9rem
+        line-height : 0.9rem
+        transform   : translateY(-2.5rem)
+
+      h6
+        font-weight  : bolder
+        font-size    : 0.7rem
+        line-height  : 0.7rem
+        width        : 100%
+        margin-left  : auto
+        margin-right : auto
+        transform    : translateY(-3.5rem)
+
+      .colours
+        transform : translateY(-3.5rem)
+
+        .boxes
+          transform : translateY(-0.25rem)
+          span
+            width  : 15px
+            height : 15px
+
+        .min, .middle, .max
+          font-size : 0.65rem
+
+        .min
+          transform : translate(3.5rem, -0.75rem)
+
+        .middle
+          transform : translate(0rem, -0.75rem)
+
+        .max
+          transform : translate(-3.5rem, -0.75rem)
+
+  .mdl-mini-footer
+    .resources-container
+      #resources-toggle
+        &:checked ~ .resources-content
+          width : calc(80vw - 20px)

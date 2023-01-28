@@ -1,0 +1,358 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@-webkit-keyframes warning-animation {
+  0% {
+    transform: translateX(0rem);
+  }
+  30% {
+    transform: translateX(-0.5rem);
+  }
+  70% {
+    transform: translateX(0.5rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+@keyframes warning-animation {
+  0% {
+    transform: translateX(0rem);
+  }
+  30% {
+    transform: translateX(-0.5rem);
+  }
+  70% {
+    transform: translateX(0.5rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+.hidden {
+  display: none;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background-color: #FAFAFA;
+  color: #333;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  min-height: calc(80vh - 25px);
+  box-sizing: border-box;
+}
+.wrapper .add-new {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0rem;
+  padding: 0rem;
+}
+.wrapper .add-new .material-icons {
+  font-size: 3rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  padding: 3px;
+  border: 3px solid #333;
+  border-radius: 50px;
+  box-sizing: border-box;
+}
+.wrapper .add-new:hover .material-icons {
+  color: #fafafa;
+  background-color: #333;
+  border: 3px solid #333;
+  transform: rotate(-45deg);
+}
+.wrapper .add-new:active .material-icons {
+  color: #fafafa;
+  background-color: #666;
+  border: 3px solid #666;
+  transform: rotate(-45deg);
+}
+.wrapper .add-new.center {
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+}
+.wrapper .recipe-modal {
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.wrapper .recipe-modal .cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -10;
+  cursor: pointer;
+}
+.wrapper .recipe-modal .form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 50%;
+  height: auto;
+}
+.wrapper .recipe-modal .form input.warning {
+  -webkit-animation: warning-animation 0.125s linear 0s 2 forwards;
+          animation: warning-animation 0.125s linear 0s 2 forwards;
+  background-color: lightcoral;
+}
+.wrapper .recipe-modal .form input.warning::-moz-placeholder {
+  color: white;
+}
+.wrapper .recipe-modal .form input.warning:-ms-input-placeholder {
+  color: white;
+}
+.wrapper .recipe-modal .form input.warning::placeholder {
+  color: white;
+}
+.wrapper .recipe-modal .form input {
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  width: 100%;
+  background-color: white;
+}
+.wrapper .recipe-modal .form textarea {
+  padding: 0.25rem;
+  margin-bottom: 0.25rem;
+  width: 100%;
+  min-height: 10rem;
+  resize: none;
+}
+.wrapper .recipe-modal .form .buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.wrapper .recipe-modal .form .buttons button {
+  background-color: white;
+  border: 0px solid darkgray;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+.wrapper .recipe-modal .form .buttons button:first-child:hover {
+  background-color: springgreen;
+}
+.wrapper .recipe-modal .form .buttons button:last-child:hover {
+  background-color: lightcoral;
+}
+.wrapper .recipe-list {
+  display: none;
+  width: 80vw;
+  height: auto;
+  margin: 1rem 0rem;
+  transform: translateX(-1.5rem);
+}
+.wrapper .recipe-list .recipe {
+  width: 100%;
+  height: auto;
+}
+.wrapper .recipe-list .recipe .recipe-name:hover {
+  background-color: gainsboro;
+}
+.wrapper .recipe-list .recipe .recipe-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 3.5rem;
+  box-sizing: border-box;
+  background-color: whitesmoke;
+  border-top: 1px solid grey;
+  border-bottom: 2px solid grey;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.wrapper .recipe-list .recipe .recipe-name .name {
+  display: inline-block;
+  font-size: 2.5rem;
+  margin: 0rem 0.5rem;
+}
+.wrapper .recipe-list .recipe .recipe-name .icons {
+  display: inline-block;
+}
+.wrapper .recipe-list .recipe .recipe-name .icons .material-icons {
+  display: inline-block;
+  font-size: 2.5rem;
+  margin: 0rem 0.25rem;
+  cursor: pointer;
+}
+.wrapper .recipe-list .recipe .recipe-name .icons .material-icons:first-child:hover {
+  color: blueviolet;
+}
+.wrapper .recipe-list .recipe .recipe-name .icons .material-icons:last-child:hover {
+  color: firebrick;
+}
+.wrapper .recipe-list .recipe .recipe-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+  border-bottom: 0px solid grey;
+  box-sizing: border-box;
+}
+.wrapper .recipe-list .recipe .recipe-description .ingredients, .wrapper .recipe-list .recipe .recipe-description .directions {
+  box-sizing: border-box;
+  width: calc(50% - 1px);
+  height: auto;
+  padding: 0rem 0.5rem;
+}
+.wrapper .recipe-list .recipe .recipe-description .ingredients .title, .wrapper .recipe-list .recipe .recipe-description .directions .title {
+  font-weight: bolder;
+}
+.wrapper .recipe-list .recipe .recipe-description .ingredients {
+  border-right: 1px solid gainsboro;
+}
+.wrapper .recipe-list .recipe .recipe-description .directions {
+  border-left: 1px solid gainsboro;
+}
+.wrapper .recipe-list .recipe .recipe-description.show {
+  height: auto;
+  border-bottom: 1px solid grey;
+}
+
+.mdl-mini-footer {
+  position: relative;
+  flex-grow: 1;
+}
+.mdl-mini-footer .mdl-logo {
+  background-color: #424242;
+  color: #CCC;
+  font-size: 0.8em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.mdl-mini-footer .mdl-logo .footer-link {
+  color: #CCC;
+}
+.mdl-mini-footer .mdl-logo span {
+  display: block;
+  color: grey;
+  margin-top: -1rem;
+}
+.mdl-mini-footer .resources-container {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.mdl-mini-footer .resources-container #resources-toggle {
+  display: none;
+}
+.mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-backdrop {
+  position: fixed;
+  visibility: visible;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2 ease-in;
+}
+.mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-content {
+  position: fixed;
+  visibility: visible;
+  width: 75vw;
+  height: 50vh;
+  left: 50%;
+  top: 10vh;
+  transform: translateX(-50%);
+  background-color: #FFF;
+  opacity: 1;
+  padding: 10px 30px;
+  z-index: 999;
+  pointer-events: auto;
+  cursor: auto;
+  box-shadow: 0 0px 0px 6px rgba(0, 0, 0, 0.6);
+}
+.mdl-mini-footer .resources-container .resources-btn {
+  display: block;
+  margin: 0;
+  color: #CCC;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.mdl-mini-footer .resources-container .resources-content,
+.mdl-mini-footer .resources-container .resources-backdrop {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+}
+.mdl-mini-footer .resources-container .resources-content {
+  position: relative;
+  color: black;
+}
+.mdl-mini-footer .resources-container .resources-content .resources-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 5px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+.mdl-mini-footer .resources-container .resources-content .resources-close:hover {
+  color: #C33;
+}
+
+@media (max-width: 480px) {
+  .wrapper .recipe-list .recipe .recipe-description ul, .wrapper .recipe-list .recipe .recipe-description ol {
+    padding-left: 20px;
+  }
+
+  .mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-content {
+    width: calc(80vw - 20px);
+  }
+}

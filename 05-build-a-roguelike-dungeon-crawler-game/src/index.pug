@@ -1,0 +1,71 @@
+#wrapper.wrapper
+
+  //- To allow user to use keyboard
+  //- from the start without having
+  //- to click on the screen first
+  input#for-focus(type="input")
+
+  #modal.modal(click.delegate="replay()")
+    p null
+    p null
+
+  #statusbar.statusbar(css="display: ${initial ? 'flex' : ''};")
+    .game-status
+      span.title Health:
+      span.value ${gamestatus.playerHealth}
+      span.separator |
+      span.title Weapon:
+      span.value ${gamestatus.playerWeapon}
+      span.separator |
+      span.title Attack:
+      span.value ${gamestatus.playerAtt}
+      span.separator |
+      span.title Level:
+      span.value ${gamestatus.playerLvl}
+      span.separator |
+      span.title Exp:
+      span.value ${gamestatus.playerExp}
+      span.title /100
+      span.separator |
+      span.title Dungeon:
+      span.value ${gamestatus.currentDungeon}
+      span.title /3
+
+    .light-toggle(click.delegate="toggleLight($event)")
+      i.material-icons brightness_low
+      i.material-icons brightness_high
+
+  #board.board(css="display: ${initial ? 'block' : ''};" data-light="${gamestatus.lights}")
+    table#table.table(style="top: 0px; left: 0px;")
+      tbody
+        tr(repeat.for="row of table")
+          td(repeat.for="column of row" id="${$parent.$index}-${$index}" data-tile="${column}" data-light="${gamestatus.lights}")
+
+footer.mdl-mini-footer
+  .mdl-logo
+    | Written by&nbsp;
+    a.footer-link(href="https://www.freecodecamp.org/letsziggy" target="_blank") LetsZiggy
+    | &nbsp;for&nbsp;
+    a.footer-link(href='https://www.freecodecamp.org/challenges/build-a-roguelike-dungeon-crawler-game', target='_blank') FreeCodeCamp Challenge
+    | .
+    span Using Aurelia.js instead of React.js
+
+  .resources-container
+    input#resources-toggle(type="checkbox")
+    label.resources-btn(for="resources-toggle") Resources
+    label.resources-backdrop(for="resources-toggle")
+    .resources-content
+      label.resources-close(for="resources-toggle") &#x2715;
+      h5 Resources
+      hr
+      ul
+        li
+          a(href="https://codemyui.com/pure-css-modal-box-on-button-click/" target="_blank") Pure CSS Modal Box On Button Click
+        li
+          a(href="http://aurelia.io/" target="_blank") Aurelia.js
+        li
+          a(href="https://codepen.io/kwatanabe/pen/OxaBoZ/" target="_blank") Guide for using Aurelia.js on CodePen with basicConfiguration
+        li
+          a(href="https://codepen.io/mikkokam/pen/aOmRej/" target="_blank") Guide for using Aurelia.js on CodePen with iframe
+        li
+          a(href="https://ilikekillnerds.com/2016/01/working-with-keypress-events-in-aurelia/" target="_blank") Adding EventListener without using .delegate / .trigger

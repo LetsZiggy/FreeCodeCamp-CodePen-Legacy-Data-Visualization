@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - FreeCodeCamp - Build a Roguelike Dungeon Crawler Game</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FreeCodeCamp - Build a Roguelike Dungeon Crawler Game</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://code.getmdl.io/1.2.1/material.indigo-red.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper" id="wrapper">
+  <input id="for-focus" type="input"/>
+  <div class="modal" id="modal" click.delegate="replay()">
+    <p>null</p>
+    <p>null</p>
+  </div>
+  <div class="statusbar" id="statusbar" css="display: ${initial ? 'flex' : ''};">
+    <div class="game-status"><span class="title">Health:</span><span class="value">${gamestatus.playerHealth}</span><span class="separator">|</span><span class="title">Weapon:</span><span class="value">${gamestatus.playerWeapon}</span><span class="separator">|</span><span class="title">Attack:</span><span class="value">${gamestatus.playerAtt}</span><span class="separator">|</span><span class="title">Level:</span><span class="value">${gamestatus.playerLvl}</span><span class="separator">|</span><span class="title">Exp:</span><span class="value">${gamestatus.playerExp}</span><span class="title">/100</span><span class="separator">|</span><span class="title">Dungeon:</span><span class="value">${gamestatus.currentDungeon}</span><span class="title">/3</span></div>
+    <div class="light-toggle" click.delegate="toggleLight($event)"><i class="material-icons">brightness_low</i><i class="material-icons">brightness_high</i></div>
+  </div>
+  <div class="board" id="board" css="display: ${initial ? 'block' : ''};" data-light="${gamestatus.lights}">
+    <table class="table" id="table" style="top: 0px; left: 0px;">
+      <tbody>
+        <tr repeat.for="row of table">
+          <td repeat.for="column of row" id="${$parent.$index}-${$index}" data-tile="${column}" data-light="${gamestatus.lights}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<footer class="mdl-mini-footer">
+  <div class="mdl-logo">Written by&nbsp;<a class="footer-link" href="https://www.freecodecamp.org/letsziggy" target="_blank">LetsZiggy</a>&nbsp;for&nbsp;<a class="footer-link" href="https://www.freecodecamp.org/challenges/build-a-roguelike-dungeon-crawler-game" target="_blank">FreeCodeCamp Challenge</a>.<span>Using Aurelia.js instead of React.js</span></div>
+  <div class="resources-container">
+    <input id="resources-toggle" type="checkbox"/>
+    <label class="resources-btn" for="resources-toggle">Resources</label>
+    <label class="resources-backdrop" for="resources-toggle"></label>
+    <div class="resources-content">
+      <label class="resources-close" for="resources-toggle">&#x2715;</label>
+      <h5>Resources</h5>
+      <hr/>
+      <ul>
+        <li><a href="https://codemyui.com/pure-css-modal-box-on-button-click/" target="_blank">Pure CSS Modal Box On Button Click</a></li>
+        <li><a href="http://aurelia.io/" target="_blank">Aurelia.js</a></li>
+        <li><a href="https://codepen.io/kwatanabe/pen/OxaBoZ/" target="_blank">Guide for using Aurelia.js on CodePen with basicConfiguration</a></li>
+        <li><a href="https://codepen.io/mikkokam/pen/aOmRej/" target="_blank">Guide for using Aurelia.js on CodePen with iframe</a></li>
+        <li><a href="https://ilikekillnerds.com/2016/01/working-with-keypress-events-in-aurelia/" target="_blank">Adding EventListener without using .delegate / .trigger</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- partial -->
+  <script src='https://code.getmdl.io/1.1.3/material.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/aurelia/1.0.2/aurelia-core.min.js'></script><script type="module" src="./script.js"></script>
+
+</body>
+</html>

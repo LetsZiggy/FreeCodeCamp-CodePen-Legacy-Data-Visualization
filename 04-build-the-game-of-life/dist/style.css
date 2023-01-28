@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+body {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background-color: #FAFAFA;
+  color: #333;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  min-height: calc(80vh - 25px);
+  box-sizing: border-box;
+}
+.wrapper .controllers {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.wrapper .controllers span {
+  font-size: 1.75rem;
+  font-weight: bolder;
+  margin-top: -0.65rem;
+}
+.wrapper .controllers .controls {
+  display: inline-block;
+}
+.wrapper .controllers .controls .play, .wrapper .controllers .controls .pause, .wrapper .controllers .controls .clear, .wrapper .controllers .controls .random {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.wrapper .controllers .controls .play .material-icons:first-child, .wrapper .controllers .controls .pause .material-icons:first-child, .wrapper .controllers .controls .clear .material-icons:first-child, .wrapper .controllers .controls .random .material-icons:first-child {
+  display: inline-block;
+}
+.wrapper .controllers .controls .play .material-icons:last-child, .wrapper .controllers .controls .pause .material-icons:last-child, .wrapper .controllers .controls .clear .material-icons:last-child, .wrapper .controllers .controls .random .material-icons:last-child {
+  display: none;
+}
+.wrapper .controllers .controls .play:hover .material-icons:first-child, .wrapper .controllers .controls .pause:hover .material-icons:first-child, .wrapper .controllers .controls .clear:hover .material-icons:first-child, .wrapper .controllers .controls .random:hover .material-icons:first-child {
+  display: none;
+}
+.wrapper .controllers .controls .play:hover .material-icons:last-child, .wrapper .controllers .controls .pause:hover .material-icons:last-child, .wrapper .controllers .controls .clear:hover .material-icons:last-child, .wrapper .controllers .controls .random:hover .material-icons:last-child {
+  display: inline-block;
+}
+.wrapper .controllers .controls .play:active .material-icons:last-child, .wrapper .controllers .controls .pause:active .material-icons:last-child, .wrapper .controllers .controls .clear:active .material-icons:last-child, .wrapper .controllers .controls .random:active .material-icons:last-child {
+  color: grey;
+}
+.wrapper .controllers .controls .play.selected, .wrapper .controllers .controls .pause.selected, .wrapper .controllers .controls .clear.selected, .wrapper .controllers .controls .random.selected {
+  cursor: default;
+}
+.wrapper .controllers .controls .play.selected .material-icons:first-child, .wrapper .controllers .controls .pause.selected .material-icons:first-child, .wrapper .controllers .controls .clear.selected .material-icons:first-child, .wrapper .controllers .controls .random.selected .material-icons:first-child {
+  display: none;
+}
+.wrapper .controllers .controls .play.selected .material-icons:last-child, .wrapper .controllers .controls .pause.selected .material-icons:last-child, .wrapper .controllers .controls .clear.selected .material-icons:last-child, .wrapper .controllers .controls .random.selected .material-icons:last-child {
+  display: inline-block;
+}
+.wrapper .controllers .controls .play.selected:active .material-icons:last-child, .wrapper .controllers .controls .pause.selected:active .material-icons:last-child, .wrapper .controllers .controls .clear.selected:active .material-icons:last-child, .wrapper .controllers .controls .random.selected:active .material-icons:last-child {
+  color: rgba(0, 0, 0, 0.8);
+}
+.wrapper .controllers .speed, .wrapper .controllers .size {
+  display: inline-block;
+}
+.wrapper .controllers .speed .slow, .wrapper .controllers .speed .medium, .wrapper .controllers .speed .fast, .wrapper .controllers .speed .small, .wrapper .controllers .speed .medium, .wrapper .controllers .speed .large, .wrapper .controllers .size .slow, .wrapper .controllers .size .medium, .wrapper .controllers .size .fast, .wrapper .controllers .size .small, .wrapper .controllers .size .medium, .wrapper .controllers .size .large {
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.wrapper .controllers .speed .slow .material-icons, .wrapper .controllers .speed .medium .material-icons, .wrapper .controllers .speed .fast .material-icons, .wrapper .controllers .speed .small .material-icons, .wrapper .controllers .speed .medium .material-icons, .wrapper .controllers .speed .large .material-icons, .wrapper .controllers .size .slow .material-icons, .wrapper .controllers .size .medium .material-icons, .wrapper .controllers .size .fast .material-icons, .wrapper .controllers .size .small .material-icons, .wrapper .controllers .size .medium .material-icons, .wrapper .controllers .size .large .material-icons {
+  border-radius: 25px;
+}
+.wrapper .controllers .speed .slow:hover .material-icons, .wrapper .controllers .speed .medium:hover .material-icons, .wrapper .controllers .speed .fast:hover .material-icons, .wrapper .controllers .speed .small:hover .material-icons, .wrapper .controllers .speed .medium:hover .material-icons, .wrapper .controllers .speed .large:hover .material-icons, .wrapper .controllers .size .slow:hover .material-icons, .wrapper .controllers .size .medium:hover .material-icons, .wrapper .controllers .size .fast:hover .material-icons, .wrapper .controllers .size .small:hover .material-icons, .wrapper .controllers .size .medium:hover .material-icons, .wrapper .controllers .size .large:hover .material-icons {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fafafa;
+}
+.wrapper .controllers .speed .slow:active .material-icons, .wrapper .controllers .speed .medium:active .material-icons, .wrapper .controllers .speed .fast:active .material-icons, .wrapper .controllers .speed .small:active .material-icons, .wrapper .controllers .speed .medium:active .material-icons, .wrapper .controllers .speed .large:active .material-icons, .wrapper .controllers .size .slow:active .material-icons, .wrapper .controllers .size .medium:active .material-icons, .wrapper .controllers .size .fast:active .material-icons, .wrapper .controllers .size .small:active .material-icons, .wrapper .controllers .size .medium:active .material-icons, .wrapper .controllers .size .large:active .material-icons {
+  background-color: grey;
+  color: #fafafa;
+}
+.wrapper .controllers .speed .slow.selected, .wrapper .controllers .speed .medium.selected, .wrapper .controllers .speed .fast.selected, .wrapper .controllers .speed .small.selected, .wrapper .controllers .speed .medium.selected, .wrapper .controllers .speed .large.selected, .wrapper .controllers .size .slow.selected, .wrapper .controllers .size .medium.selected, .wrapper .controllers .size .fast.selected, .wrapper .controllers .size .small.selected, .wrapper .controllers .size .medium.selected, .wrapper .controllers .size .large.selected {
+  cursor: default;
+}
+.wrapper .controllers .speed .slow.selected .material-icons, .wrapper .controllers .speed .medium.selected .material-icons, .wrapper .controllers .speed .fast.selected .material-icons, .wrapper .controllers .speed .small.selected .material-icons, .wrapper .controllers .speed .medium.selected .material-icons, .wrapper .controllers .speed .large.selected .material-icons, .wrapper .controllers .size .slow.selected .material-icons, .wrapper .controllers .size .medium.selected .material-icons, .wrapper .controllers .size .fast.selected .material-icons, .wrapper .controllers .size .small.selected .material-icons, .wrapper .controllers .size .medium.selected .material-icons, .wrapper .controllers .size .large.selected .material-icons {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fafafa;
+}
+.wrapper .controllers .generation {
+  display: none;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin-top: -0.45rem;
+}
+.wrapper table {
+  display: none;
+  border-spacing: 1px;
+  background-color: #eaeaea;
+  margin-bottom: 1rem;
+}
+.wrapper table tbody tr td {
+  min-width: 5px;
+  min-height: 5px;
+  width: 5px;
+  height: 5px;
+  background-color: whitesmoke;
+}
+.wrapper table tbody tr td:hover {
+  background-color: gainsboro;
+}
+.wrapper table tbody tr td[data-alive="1"] {
+  background-color: lightcoral;
+}
+.wrapper table tbody tr td[data-alive="1"]:hover {
+  background-color: indianred;
+}
+.wrapper table tbody tr td[data-alive="2"] {
+  background-color: crimson;
+}
+.wrapper table tbody tr td[data-alive="2"]:hover {
+  background-color: darkred;
+}
+
+.mdl-mini-footer {
+  position: relative;
+  flex-grow: 1;
+}
+.mdl-mini-footer .mdl-logo {
+  background-color: #424242;
+  color: #CCC;
+  font-size: 0.8em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.mdl-mini-footer .mdl-logo .footer-link {
+  color: #CCC;
+}
+.mdl-mini-footer .mdl-logo span {
+  display: block;
+  color: grey;
+  margin-top: -1rem;
+}
+.mdl-mini-footer .resources-container {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.mdl-mini-footer .resources-container #resources-toggle {
+  display: none;
+}
+.mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-backdrop {
+  position: fixed;
+  visibility: visible;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2 ease-in;
+}
+.mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-content {
+  position: fixed;
+  visibility: visible;
+  width: 75vw;
+  height: 50vh;
+  left: 50%;
+  top: 10vh;
+  transform: translateX(-50%);
+  background-color: #FFF;
+  opacity: 1;
+  padding: 10px 30px;
+  z-index: 999;
+  pointer-events: auto;
+  cursor: auto;
+  box-shadow: 0 0px 0px 6px rgba(0, 0, 0, 0.6);
+}
+.mdl-mini-footer .resources-container .resources-btn {
+  display: block;
+  margin: 0;
+  color: #CCC;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.mdl-mini-footer .resources-container .resources-content,
+.mdl-mini-footer .resources-container .resources-backdrop {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+}
+.mdl-mini-footer .resources-container .resources-content {
+  position: relative;
+  color: black;
+}
+.mdl-mini-footer .resources-container .resources-content .resources-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 5px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+.mdl-mini-footer .resources-container .resources-content .resources-close:hover {
+  color: #C33;
+}
+
+@media (max-width: 760px) {
+  .wrapper .controllers span {
+    font-size: 1.25rem;
+  }
+  .wrapper .controllers .play .material-icons, .wrapper .controllers .pause .material-icons, .wrapper .controllers .clear .material-icons, .wrapper .controllers .random .material-icons, .wrapper .controllers .speed .material-icons, .wrapper .controllers .size .material-icons {
+    font-size: 1.5rem;
+  }
+  .wrapper .controllers .generation {
+    font-size: 1rem;
+    margin-top: -0.4rem;
+  }
+}
+@media (max-width: 480px) {
+  .wrapper .controllers span {
+    font-size: 0.9rem;
+    margin-top: -0.3rem;
+  }
+  .wrapper .controllers .play .material-icons, .wrapper .controllers .pause .material-icons, .wrapper .controllers .clear .material-icons, .wrapper .controllers .random .material-icons, .wrapper .controllers .speed .material-icons, .wrapper .controllers .size .material-icons {
+    font-size: 1rem;
+  }
+  .wrapper .controllers .generation {
+    font-size: 0.85rem;
+    margin-top: -0.3rem;
+  }
+
+  .mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-content {
+    width: calc(80vw - 20px);
+  }
+}

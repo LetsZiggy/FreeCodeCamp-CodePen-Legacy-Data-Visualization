@@ -1,0 +1,202 @@
+body {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  background-color: #FAFAFA;
+  color: #333;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 90vh;
+}
+.wrapper #table {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.wrapper .nametext {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.wrapper #info {
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.wrapper .info {
+  text-align: center;
+  padding: 0.5rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 5px;
+  min-width: 200px;
+  min-height: 25px;
+}
+.wrapper #graph-title {
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.wrapper .graph-title {
+  min-width: 500px;
+  min-height: 25px;
+  padding: 0.25rem;
+  text-align: center;
+  color: dimgrey;
+}
+.wrapper .graph-title h2 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  font-weight: bolder;
+}
+.wrapper .graph-title h4 {
+  font-size: 1rem;
+  line-height: 1rem;
+  font-weight: bolder;
+  margin-top: -1.65rem;
+}
+.wrapper .graph-title p {
+  font-size: 0.85rem;
+  line-height: 0.85rem;
+  margin-top: -0.25rem;
+}
+
+.mdl-mini-footer {
+  position: relative;
+  flex-grow: 1;
+}
+.mdl-mini-footer .mdl-logo {
+  background-color: #424242;
+  color: #CCC;
+  font-size: 0.8em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.mdl-mini-footer .mdl-logo .footer-link {
+  color: #CCC;
+}
+.mdl-mini-footer .resources-container {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.mdl-mini-footer .resources-container #resources-toggle {
+  display: none;
+}
+.mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-backdrop {
+  position: fixed;
+  visibility: visible;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2 ease-in;
+}
+.mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-content {
+  position: fixed;
+  visibility: visible;
+  width: 50vw;
+  height: 70vh;
+  left: 50%;
+  top: 10vh;
+  transform: translateX(-50%);
+  background-color: #FFF;
+  opacity: 1;
+  padding: 10px 30px;
+  z-index: 999;
+  pointer-events: auto;
+  cursor: auto;
+  box-shadow: 0 0px 0px 6px rgba(0, 0, 0, 0.6);
+}
+.mdl-mini-footer .resources-container .resources-btn {
+  display: block;
+  margin: 0;
+  color: #CCC;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.mdl-mini-footer .resources-container .resources-content,
+.mdl-mini-footer .resources-container .resources-backdrop {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in;
+}
+.mdl-mini-footer .resources-container .resources-content {
+  position: relative;
+  color: black;
+}
+.mdl-mini-footer .resources-container .resources-content .resources-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  padding: 5px;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+.mdl-mini-footer .resources-container .resources-content .resources-close:hover {
+  color: #C33;
+}
+
+@media (max-width: 760px) {
+  .wrapper .graph-title {
+    margin-left: -2rem;
+  }
+  .wrapper .graph-title h2 {
+    font-size: 1.15rem;
+    line-height: 1.15rem;
+  }
+  .wrapper .graph-title h4 {
+    font-size: 0.9rem;
+    line-height: 1.15rem;
+  }
+  .wrapper .graph-title p {
+    font-size: 0.8rem;
+    line-height: 0.8rem;
+  }
+}
+@media (max-width: 480px) {
+  .wrapper .graph-title {
+    margin-left: -5rem;
+  }
+  .wrapper .graph-title h2 {
+    font-size: 1rem;
+    line-height: 1rem;
+  }
+  .wrapper .graph-title h4 {
+    font-size: 0.85rem;
+    line-height: 1rem;
+  }
+  .wrapper .graph-title p {
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+  }
+
+  .mdl-mini-footer .resources-container #resources-toggle:checked ~ .resources-content {
+    width: calc(80vw - 20px);
+  }
+}

@@ -1,0 +1,45 @@
+#wrapper.wrapper
+  table
+    caption FreeCodeCamp Leaderboard
+    thead
+      tr
+        th #
+        th Camper Name
+        th(css="background-color: ${sort === 'recent' ? 'purple' : ''};" click.delegate="changeData('recent')") Points in past 30 days
+        th(css="background-color: ${sort === 'alltime' ? 'purple' : ''};" click.delegate="changeData('alltime')") All time points
+    tbody(css="display: ${datas === null ? '' : 'table-row-group'};")
+      tr(repeat.for="data of datas")
+        td ${$index + 1}
+        td
+          a(href="https://www.freecodecamp.org/${data.username}" target="_blank")
+            img(src="${data.img}")
+            | ${data.username}
+        td ${data.recent}
+        td ${data.alltime}
+
+footer.mdl-mini-footer
+  .mdl-logo
+    | Written by&nbsp;
+    a.footer-link(href="https://www.freecodecamp.org/letsziggy" target="_blank") LetsZiggy
+    | &nbsp;for&nbsp;
+    a.footer-link(href='https://www.freecodecamp.org/challenges/build-a-camper-leaderboard', target='_blank') FreeCodeCamp Challenge
+    | .
+    span Using Aurelia.js instead of React.js
+
+  .resources-container
+    input#resources-toggle(type="checkbox")
+    label.resources-btn(for="resources-toggle") Resources
+    label.resources-backdrop(for="resources-toggle")
+    .resources-content
+      label.resources-close(for="resources-toggle") &#x2715;
+      h5 Resources
+      hr
+      ul
+        li
+          a(href="https://codemyui.com/pure-css-modal-box-on-button-click/" target="_blank") Pure CSS Modal Box On Button Click
+        li
+          a(href="http://aurelia.io/" target="_blank") Aurelia.js
+        li
+          a(href="https://codepen.io/kwatanabe/pen/OxaBoZ/" target="_blank") Guide for using Aurelia.js on CodePen with basicConfiguration
+        li
+          a(href="https://codepen.io/mikkokam/pen/aOmRej/" target="_blank") Guide for using Aurelia.js on CodePen with iframe

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - FreeCodeCamp - Build the Game of Life</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FreeCodeCamp - Build the Game of Life</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://code.getmdl.io/1.2.1/material.indigo-red.min.css'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="wrapper" id="wrapper">
+  <div class="controllers">
+    <div class="controls">
+      <div class="play" id="play" click.delegate="control($event, 'play')" title="Run"><i class="material-icons">play_circle_outline</i><i class="material-icons">play_circle_filled</i></div>
+      <div class="pause selected" id="pause" click.delegate="control($event, 'pause')" title="Pause"><i class="material-icons">pause_circle_outline</i><i class="material-icons">pause_circle_filled</i></div>
+      <div class="clear" id="clear" click.delegate="control($event, 'clear')" title="Clear Board"><i class="material-icons">remove_circle_outline</i><i class="material-icons">remove_circle</i></div>
+      <div class="random" id="random" click.delegate="control($event, 'random')" title="Random Seed"><i class="material-icons">help_outline</i><i class="material-icons">help</i></div>
+    </div><span>&nbsp;|&nbsp;</span>
+    <div class="speed">
+      <div class="slow" click.delegate="control($event, 'slow')" title="Slow Speed"><i class="material-icons">border_left</i></div>
+      <div class="medium" click.delegate="control($event, 'mediumspeed')" title="Medium Speed"><i class="material-icons">border_vertical</i></div>
+      <div class="fast selected" click.delegate="control($event, 'fast')" title="Fast Speed"><i class="material-icons">border_right</i></div>
+    </div><span>&nbsp;|&nbsp;</span>
+    <div class="size">
+      <div class="small selected" click.delegate="control($event, 'small')" title="Small Board"><i class="material-icons">border_bottom</i></div>
+      <div class="medium" click.delegate="control($event, 'mediumsize')" title="Medium Board"><i class="material-icons">border_horizontal</i></div>
+      <div class="large" click.delegate="control($event, 'large')" title="Large Board"><i class="material-icons">border_top</i></div>
+    </div><span>&nbsp;|&nbsp;</span>
+    <div class="generation" css="display: ${generation === null ? '' : 'block'};">${generation}</div>
+  </div>
+  <table id="table" css="display: ${board.length === 0 ? '' : 'table'};">
+    <tbody>
+      <tr repeat.for="row of board">
+        <td repeat.for="column of row" data-row="${$parent.$index}" data-column="${$index}" id="${$parent.$index}-${$index}" data-alive="${column}" click.delegate="selectTile($event)"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<footer class="mdl-mini-footer">
+  <div class="mdl-logo">Written by&nbsp;<a class="footer-link" href="https://www.freecodecamp.org/letsziggy" target="_blank">LetsZiggy</a>&nbsp;for&nbsp;<a class="footer-link" href="https://www.freecodecamp.org/challenges/build-the-game-of-life" target="_blank">FreeCodeCamp Challenge</a>.<span>Using Aurelia.js instead of React.js</span></div>
+  <div class="resources-container">
+    <input id="resources-toggle" type="checkbox"/>
+    <label class="resources-btn" for="resources-toggle">Resources</label>
+    <label class="resources-backdrop" for="resources-toggle"></label>
+    <div class="resources-content">
+      <label class="resources-close" for="resources-toggle">&#x2715;</label>
+      <h5>Resources</h5>
+      <hr/>
+      <ul>
+        <li><a href="https://codemyui.com/pure-css-modal-box-on-button-click/" target="_blank">Pure CSS Modal Box On Button Click</a></li>
+        <li><a href="http://aurelia.io/" target="_blank">Aurelia.js</a></li>
+        <li><a href="https://codepen.io/kwatanabe/pen/OxaBoZ/" target="_blank">Guide for using Aurelia.js on CodePen with basicConfiguration</a></li>
+        <li><a href="https://codepen.io/mikkokam/pen/aOmRej/" target="_blank">Guide for using Aurelia.js on CodePen with iframe</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+<!-- partial -->
+  <script src='https://code.getmdl.io/1.1.3/material.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/aurelia/1.0.2/aurelia-core.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
